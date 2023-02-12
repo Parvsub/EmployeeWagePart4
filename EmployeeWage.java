@@ -1,13 +1,13 @@
 package EmployeeWagePartfour;
 
-public class EmployeeWage {
+public class EmployeeWage{
     static final int PartTime = 1;
     static final int FullTime = 2;
     static final int EmployeeRatePerHour = 20;
     static final int NumberOfWorkingDays = 20;
     static final int maximumHoursInMonth = 100;
 
-    void EmployeeCondition() {
+    void EmployeeMonthlyWage() {
         int employeeHours = 0;
         int TotalEmployeeHours = 0;
         int TotalWorkingDays = 0;
@@ -31,9 +31,8 @@ public class EmployeeWage {
         System.out.println("Total Employee Wage: " + TotalEmployeeWage);
     }
 
-
     public static void main(String[] args) {
-        EmployeeWage employeeCondition = new EmployeeWage();
-        employeeCondition.EmployeeCondition();
+        EmployeeWage EmployeeWage = new EmployeeWage();
+        EmployeeWage.EmployeeMonthlyWage();
     }
 }
