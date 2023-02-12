@@ -1,24 +1,23 @@
 package EmployeeWagePartfour;
 
-public class EmployeeWage {
-            void AddPartTime(int FullTime, int PartTime, int WagePerHour, int EmployeeHours, int EmployeeWage){
-            double employeeCheck = Math.floor(Math.random() * 10) % 3;
-            if (employeeCheck == FullTime) {
-                EmployeeHours = 8;
-            }
-            else if (employeeCheck == PartTime){
-                EmployeeHours = 4;
-            }
-            else {
-                EmployeeHours = 0;
-            }
-            EmployeeWage = EmployeeHours * WagePerHour;
-            System.out.println("employeeWage : "+EmployeeWage);
-        }
+public class EmployeeWage{
+    static final int FullTime = 2;
+    static final int PartTime = 1;
+    static final int WagePerHour = 20;
 
-            public static void main(String[] args) {
-            EmployeeWage partTimeEmployee = new EmployeeWage();
-            partTimeEmployee.AddPartTime(2,1,20,0,0);
+    void employeeSwitchCase(int EmployeeWorkingHours, int EmployeeWage) {
+        double employeeCheck = Math.floor(Math.random() * 10) % 3;
+        switch ((int) employeeCheck) {
+            case PartTime -> EmployeeWorkingHours = 4;
+            case FullTime -> EmployeeWorkingHours = 8;
+            default -> EmployeeWorkingHours = 0;
         }
+        EmployeeWage = EmployeeWorkingHours * WagePerHour;
+        System.out.println("EmployeeWage: " + EmployeeWage);
     }
 
+    public static void main(String[] args) {
+        EmployeeWage switchCase = new EmployeeWage();
+        switchCase.employeeSwitchCase(0, 0);
+    }
+}
