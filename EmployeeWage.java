@@ -1,18 +1,22 @@
 package EmployeeWagePartfour;
 
 public class EmployeeWage {
-             void Attendance(int Full_time) {
-            // To get random number and check the attendance
-            double employeeCheck = (Math.floor(Math.random() * 10) % 2);
-            if (employeeCheck == Full_time) {
-                System.out.println("Employee is Present");
-            } else {
-                System.out.println("Employee is Absent");
-            }
-        }
 
-        public static void main(String[] args) {
-            EmployeeWage attendance = new EmployeeWage();
-            attendance.Attendance(1);
+    void DailyWage(int Full_Time, int wagePerHour,int employeeHours,int employeeWage){
+        double employeeCheck = Math.floor(Math.random() * 10)%2 ;
+        if (employeeCheck == Full_Time) {
+            employeeHours = 8;
         }
+        else {
+            employeeHours = 0;
+        }
+        employeeWage = employeeHours * wagePerHour ;
+        System.out.println("dailyEmployeeWage: "+employeeWage);
     }
+
+    public static void main(String[] args){
+        EmployeeWage employeeDailywage = new EmployeeWage();
+        employeeDailywage.DailyWage(1,20,0,0);
+    }
+
+}
