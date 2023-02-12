@@ -3,11 +3,9 @@ package EmployeeWagePartfour;
 public class EmployeeWage{
     static final int PartTime = 1;
     static final int FullTime = 2;
-    static final int EmployeeRatePerHour = 20;
-    static final int NumberOfWorkingDays = 20;
-    static final int maximumHoursInMonth = 100;
 
-    void EmployeeMonthlyWage() {
+    public static int computeEmployeeWage(String company, int EmployeeRatePerHour,int NumberOfWorkingDays,
+                                          int maximumHoursInMonth){
         int employeeHours = 0;
         int TotalEmployeeHours = 0;
         int TotalWorkingDays = 0;
@@ -29,10 +27,12 @@ public class EmployeeWage{
         }
         int TotalEmployeeWage = TotalEmployeeHours * EmployeeRatePerHour;
         System.out.println("Total Employee Wage: " + TotalEmployeeWage);
+        return TotalEmployeeWage;
     }
 
     public static void main(String[] args) {
-        EmployeeWage EmployeeWage = new EmployeeWage();
-        EmployeeWage.EmployeeMonthlyWage();
+        computeEmployeeWage("Swiggy", 20,2,10);
+        computeEmployeeWage("Zomato", 10,4,20);
     }
 }
+
