@@ -24,7 +24,7 @@ interface IEmployeeWageComputation
         Companyname = companyName;
         WagePerHour = wagePerHr;
         maximumWorkingDays= maxWorkingDays;
-        maxWorkingHrs= maxWorkingHrs;
+        maximumWorkingHours= maxWorkingHrs;
         totalEmpWage = 0;
     }
 
@@ -36,12 +36,12 @@ interface IEmployeeWageComputation
     @Override
     public String toString()
     {
-        System.out.println("Details of " + COMPANY_NAME + " employee");
+        System.out.println("Details of " + Companyname + " employee");
         System.out.println("-----------------------------------------------------");
-        System.err.println("Wage per hour:" + WAGE_PER_HR);
-        System.out.println("Maximum working days:" + MAX_WORKING_DAYS);
-        System.out.println("Maximum working hours:" + MAX_WORKING_HRS);
-        return "Total wage for a month of " + COMPANY_NAME + " employee is " + totalEmpWage + "\n";
+        System.err.println("Wage per hour:" + WagePerHour);
+        System.out.println("Maximum working days:" + maximumWorkingDays);
+        System.out.println("Maximum working hours:" + maximumWorkingHours);
+        return "Total wage for a month of " + Companyname + " employee is " + totalEmpWage + "\n";
     }
 }
 
@@ -94,17 +94,17 @@ class EmployeeWageComputation implements IEmployeeWageComputation
 
     int calculateTotalWage(CompanyEmpWage companyEmpWage)
     {
-        System.out.println("Computation of total wage of " + companyEmpWage.COMPANY_NAME + " employee");
+        System.out.println("Computation of total wage of " + companyEmpWage.Companyname + " employee");
         System.out.println("-----------------------------------------------------");
         System.out.printf("%5s     %5s     %5s     %5s\n", "Day", "Workinghrs", "Wage", "Total working hrs");
 
         int workingHrs, totalWage = 0;
-        for (int day = 1, totalWorkingHrs = 0; day <= companyEmpWage.MAX_WORKING_DAYS
-                && totalWorkingHrs <= companyEmpWage.MAX_WORKING_HRS; day++, totalWorkingHrs += workingHrs)
+        for (int day = 1, totalWorkingHrs = 0; day <= companyEmpWage.maximumWorkingDays
+                && totalWorkingHrs <= companyEmpWage.maximumWorkingHours; day++, totalWorkingHrs += workingHrs)
         {
             int empType = generateEmployeeType();
             workingHrs = getWorkingHrs(empType);
-            int wage = workingHrs * companyEmpWage.WAGE_PER_HR;
+            int wage = workingHrs * companyEmpWage.WagePerHour;
             totalWage += wage;
             System.out.printf("%5d       %5d      %5d      %5d\n", day, workingHrs, wage, totalWorkingHrs + workingHrs);
         }
