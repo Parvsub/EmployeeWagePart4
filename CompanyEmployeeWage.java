@@ -1,4 +1,7 @@
 package EmployeeWagePartfour;
+
+import java.util.ArrayList;
+
 interface IEmployeeWageComputation
 {
     public void addCompany(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs);
@@ -48,19 +51,17 @@ class EmployeeWageComputation implements IEmployeeWageComputation
     public static final int PART_TIME = 1;
     public static final int FULL_TIME = 2;
     // instance variables
-    int noOfCompanies, index;
-    CompanyEmpWage[] companies;
+    ArrayList<CompanyEmpWage> companies;
 
-    public EmployeeWageComputation(int noOfCompanies)
+    public EmployeeWageComputation()
     {
-        this.noOfCompanies = noOfCompanies;
-        companies = new CompanyEmpWage[noOfCompanies];
-        index = 0;
+        companies = new ArrayList<>();
     }
 
     public void addCompany(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs)
     {
-        companies[index++] = new CompanyEmpWage(companyName, wagePerHr, maxWorkingDays, maxWorkingHrs);
+        CompanyEmpWage company = new CompanyEmpWage(companyName, wagePerHr, maxWorkingDays, maxWorkingHrs);
+        companies.add(company);
     }
 
     int generateEmployeeType()
@@ -112,10 +113,11 @@ class EmployeeWageComputation implements IEmployeeWageComputation
 
     public static void main(String args[])
     {
-        EmployeeWageComputation employeeWageComputation = new EmployeeWageComputation(3);
-        employeeWageComputation.addCompany("Swiggy", 6, 10, 90);
-        employeeWageComputation.addCompany("zomato", 4, 30, 130);
-        employeeWageComputation.addCompany("Dunzo", 8, 9, 90);
+        EmployeeWageComputation employeeWageComputation = new EmployeeWageComputation();
+        employeeWageComputation.addCompany("Infosys", 2, 20, 70);
+        employeeWageComputation.addCompany("Wipro", 4, 7, 80);
+        employeeWageComputation.addCompany("TCS", 3, 8, 90);
+        employeeWageComputation.addCompany("Flipkart", 12, 9, 100);
         employeeWageComputation.calculateTotalWage();
     }
 }
