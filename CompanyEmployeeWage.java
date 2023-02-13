@@ -9,22 +9,22 @@ interface IEmployeeWageComputation
     public void calculateTotalWage();
 }
 
-class CompanyEmpWage
+  class CompanyEmpWage
 {
     // instance constants
-    final String COMPANY_NAME;
-    final int WAGE_PER_HR;
-    final int MAX_WORKING_DAYS;
-    final int MAX_WORKING_HRS;
+    final String Companyname;
+    final int WagePerHour;
+    final int maximumWorkingDays;
+    final int maximumWorkingHours;
     // instance variable
     int totalEmpWage;
 
     CompanyEmpWage(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs)
     {
-        COMPANY_NAME = companyName;
-        WAGE_PER_HR = wagePerHr;
-        MAX_WORKING_DAYS = maxWorkingDays;
-        MAX_WORKING_HRS = maxWorkingHrs;
+        Companyname = companyName;
+        WagePerHour = wagePerHr;
+        maximumWorkingDays= maxWorkingDays;
+        maxWorkingHrs= maxWorkingHrs;
         totalEmpWage = 0;
     }
 
